@@ -1,0 +1,206 @@
+.modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    background-color: #000005bb;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 400ms ease-in-out 200ms;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    opacity: 0;
+    visibility: collapse;
+
+    .app-modal {
+        background-color: $white;
+        color: $dark;
+        border-radius: 6px;
+        min-height: 120px;
+        max-width: 500px;
+        width: 100%;
+        overflow: hidden;
+        transition: transform 700ms ease-in-out;
+        opacity: 0;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        transform: scale(0.5) translateY(-700px);
+
+        .modal-head {
+            padding: 1rem;
+            background-color: $blue;
+            color: $white;
+            min-height: 70px;
+
+            .carousel {
+                .carousel-count {
+                    display: none;
+                }
+                .carousel-item {
+                    float: none;
+                    color: $white;
+                    text-decoration: none;
+                    width: unset;
+                    margin-right: 0;
+                    &.active {
+                        .circle {
+                            background-color: $white;
+                            color: $dark;
+                        }
+                    }
+
+                    .circle {
+                        color: lighten($blue, 50%);
+                        background-color: darken($blue, 5%);
+                        height: 25px;
+                        width: 25px;
+                        line-height: 25px;
+                        text-align: center;
+                        font-size: 0.76em;
+                        vertical-align: middle;
+                        border-radius: 50%;
+                        margin-right: 0.5rem;
+                    }
+                }
+                .s {
+                    display: none;
+                }
+                .separator {
+                    height: 3px;
+                    width: 50px;
+                    background-color: lighten($blue, 5%);
+                    margin: 0 1rem;
+                }
+            }
+        }
+
+        .modal-body {
+            max-height: 400px;
+            overflow: hidden;
+            overflow-y: auto;
+
+            .list-group {
+                .list-item {
+                    list-style: none;
+                }
+            }
+
+            form {
+                position: relative;
+                & > .form-group {
+                    position: relative;
+                    .gen-btn {
+                        position: absolute;
+                        right: 0;
+                        top: 2rem;
+                        background-color: $dark;
+                        color: $white;
+                    }
+                }
+                .modal-label {
+                    color: $gray;
+                    font-size: 0.8em;
+                    margin-bottom: 0.7rem;
+                }
+
+                .form-fellow {
+                    margin-top: 2rem;
+                    padding-left: 2rem;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: 1.6rem;
+                        left: 20px;
+                        height: 16px;
+                        width: 25px;
+                        border-bottom: 1px dashed $gray;
+                    }
+
+                    .remove-field {
+                        &:hover {
+                            color: $danger;
+                        }
+                    }
+                }
+
+                .vertical-dots {
+                    height: 100%;
+                    border: 1px dashed $gray;
+                    position: absolute;
+                    left: 0.5rem;
+                }
+
+                .add-field {
+                    position: absolute;
+                    bottom: -25px;
+                    left: 1rem;
+                    .btn {
+                        font-size: 1.5em;
+                        background-color: $white;
+                    }
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: 0.6rem;
+                        left: -14px;
+                        height: 18px;
+                        width: 25px;
+                        border-bottom: 1px dashed $gray;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            .btn {
+                color: darken($gray, 25%);
+                &.btn-primary {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &.active {
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+
+        &.create--- {
+            .modal-head {
+                .first-slide-title {
+                    display: block;
+                }
+                .carousel-count {
+                    display: flex;
+                }
+            }
+            .slides:not(:last-child) {
+                display: block;
+            }
+        }
+
+        &.prop {
+            .modal-head {
+                .second-slide-title {
+                    display: block;
+                }
+            }
+            .slides:not(:first-child) {
+                display: block;
+            }
+        }
+        .app-modal {
+            transition-delay: 300ms;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+}

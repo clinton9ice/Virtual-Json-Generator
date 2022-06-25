@@ -1,0 +1,91 @@
+@import "./flex";
+
+.btn-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 1000;
+  .btn-option {
+    position: relative;
+    bottom: 1rem;
+    &.active{
+      .option{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .option {
+      @include flex(center);
+      position: relative;
+      margin-bottom: 1rem;
+      transition: 300ms ease;
+      opacity: 0;
+      visibility: collapse;
+      &:nth-child(1) {
+        transition-delay: 100ms;
+      }
+      &:nth-child(2) {
+        transition-delay: 150ms;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $white;
+        font-size: 0.8em;
+        padding: 0.57rem 0 0 0;
+        &.bi-save{
+          color: $primary-color;
+        }
+        &.bi-code{
+          color: $blue;
+        }
+
+      }
+      .text {
+        position: absolute;
+        left: -125px;
+        background: $white;
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+        transition: 300ms ease;
+        font-size: 0.8em;
+        // opacity: 0;
+
+        &::before {
+          content: "";
+          position: absolute;
+          right: -35px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          border-width: 18px;
+          border-color: transparent transparent transparent $white;
+          border-style: solid;
+          height: 3px;
+        }
+      }
+    }
+  }
+  .main-btn {
+    position: relative;
+    transition: 300ms ease;
+    width: 45px;
+    height: 45px;
+
+    .bi-x {
+      display: none;
+    }
+    &.active {
+      transform: rotate(90deg);
+      border-radius: 50% !important;
+      .bi-x {
+        display: block;
+        color: $primary-color;
+      }
+      .bi-menu-button {
+        display: none;
+      }
+    }
+  }
+}

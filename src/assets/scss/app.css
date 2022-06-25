@@ -1,0 +1,455 @@
+body {
+  background-color: #e8eaee;
+}
+
+main {
+  padding-bottom: 1rem;
+}
+
+button:focus,
+.btn:focus,
+select:focus,
+input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: 1px solid #e8eaee;
+}
+
+.navbar-brand {
+  color: #1c1b1b;
+  font-size: 2em;
+}
+
+.nav-tabs .nav-link {
+  position: relative;
+  padding-bottom: 0.5rem;
+  border: none;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.nav-tabs .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 3px;
+  width: 0;
+  background-color: #ff8d22;
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link.active {
+  color: #ff8d22;
+}
+
+.nav-tabs .nav-link:hover::after, .nav-tabs .nav-link.active::after {
+  width: 70%;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: transparent;
+}
+
+.breadcrumb {
+  font-size: 1.1em;
+  color: #1c1b1b;
+  position: relative;
+}
+
+.breadcrumb .b-item {
+  position: relative;
+  padding-right: 0.7rem;
+  margin-left: 0.8rem;
+  color: #6c757d;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.breadcrumb .b-item:not(:first-child)::after {
+  content: ">";
+  position: absolute;
+  top: 0.02rem;
+  left: -1rem;
+}
+
+.table-head {
+  background-color: #f4f5f7;
+  padding: 1rem 0.5rem;
+  -webkit-box-shadow: -9px -2px 15px #c4c4c429;
+          box-shadow: -9px -2px 15px #c4c4c429;
+}
+
+.app-table {
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.app-table .top-nav {
+  padding: 0.7rem 0.5rem !important;
+  background: #f4f5f7;
+  border-right: 1px solid #dee2eb;
+}
+
+.app-table .top-nav .table-tag {
+  padding: 0 1rem;
+  white-space: nowrap;
+  color: #6c757d;
+  font-size: 0.8em;
+}
+
+.app-table .top-nav:last-child {
+  border: none;
+}
+
+.app-table .table-body {
+  height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.app-table .when-empty {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 400px);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #dfe2e7;
+}
+
+.app-table .row-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #dee2eb;
+}
+
+.app-table .row-item.left {
+  max-width: 400px;
+}
+
+.app-table .row-item:last-child {
+  border: none;
+}
+
+.app-table .row-item .create-btn .btn {
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.app-table .row-item .properties {
+  max-height: 470px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.app-table .row-item .properties .p-item {
+  margin-bottom: 1rem;
+}
+
+.app-table .row-item .app-file {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  color: #6c757d;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8768em;
+  margin: 0.2rem 0 1rem;
+  padding: 0.5rem 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
+  justify-content: space-between;
+  position: relative;
+}
+
+.app-table .row-item .app-file:hover, .app-table .row-item .app-file.active {
+  background-color: #e8eaee;
+}
+
+.app-table .row-item .data-inline-editor {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  padding: 0.5rem;
+  -webkit-box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+  min-height: 200px;
+}
+
+.app-table .row-item .data-inline-editor .input-group {
+  display: block;
+  width: 100%;
+}
+
+.app-table .row-item .data-inline-editor .input-group .label {
+  padding-bottom: 0.5rem;
+  font-size: 0.875em;
+  color: #6c757d;
+}
+
+.app-table .row-item .data-inline-editor .input-group .form-control {
+  width: 100%;
+}
+
+.app-table .row-item .data-inline-editor .separator {
+  padding: 1rem 0.3rem 0;
+}
+
+.app-table .row-item .data-inline-editor form {
+  position: relative;
+}
+
+.app-table .row-item .data-inline-editor form .document-field-editor-footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  top: 5rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background-color: #000005bb;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 400ms ease-in-out 200ms;
+  transition: 400ms ease-in-out 200ms;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  opacity: 0;
+  visibility: collapse;
+}
+
+.modal-overlay .app-modal {
+  background-color: #fff;
+  color: #1c1b1b;
+  border-radius: 6px;
+  min-height: 120px;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 700ms ease-in-out;
+  transition: -webkit-transform 700ms ease-in-out;
+  transition: transform 700ms ease-in-out;
+  transition: transform 700ms ease-in-out, -webkit-transform 700ms ease-in-out;
+  opacity: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: scale(0.5) translateY(-700px);
+          transform: scale(0.5) translateY(-700px);
+}
+
+.modal-overlay .app-modal .modal-head {
+  padding: 1rem;
+  background-color: #0a58ca;
+  color: #fff;
+  min-height: 70px;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .carousel-count {
+  display: none;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .carousel-item {
+  float: none;
+  color: #fff;
+  text-decoration: none;
+  width: unset;
+  margin-right: 0;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .carousel-item.active .circle {
+  background-color: #fff;
+  color: #1c1b1b;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .carousel-item .circle {
+  color: #d6e6fd;
+  background-color: #094db2;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 0.76em;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .s {
+  display: none;
+}
+
+.modal-overlay .app-modal .modal-head .carousel .separator {
+  height: 3px;
+  width: 50px;
+  background-color: #0b63e2;
+  margin: 0 1rem;
+}
+
+.modal-overlay .app-modal .modal-body {
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.modal-overlay .app-modal .modal-body .list-group .list-item {
+  list-style: none;
+}
+
+.modal-overlay .app-modal .modal-body form {
+  position: relative;
+}
+
+.modal-overlay .app-modal .modal-body form > .form-group {
+  position: relative;
+}
+
+.modal-overlay .app-modal .modal-body form > .form-group .gen-btn {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  background-color: #1c1b1b;
+  color: #fff;
+}
+
+.modal-overlay .app-modal .modal-body form .modal-label {
+  color: #6c757d;
+  font-size: 0.8em;
+  margin-bottom: 0.7rem;
+}
+
+.modal-overlay .app-modal .modal-body form .form-fellow {
+  margin-top: 2rem;
+  padding-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.modal-overlay .app-modal .modal-body form .form-fellow::before {
+  position: absolute;
+  content: "";
+  top: 1.6rem;
+  left: 20px;
+  height: 16px;
+  width: 25px;
+  border-bottom: 1px dashed #6c757d;
+}
+
+.modal-overlay .app-modal .modal-body form .form-fellow .remove-field:hover {
+  color: #dc3545;
+}
+
+.modal-overlay .app-modal .modal-body form .vertical-dots {
+  height: 100%;
+  border: 1px dashed #6c757d;
+  position: absolute;
+  left: 0.5rem;
+}
+
+.modal-overlay .app-modal .modal-body form .add-field {
+  position: absolute;
+  bottom: -25px;
+  left: 1rem;
+}
+
+.modal-overlay .app-modal .modal-body form .add-field .btn {
+  font-size: 1.5em;
+  background-color: #fff;
+}
+
+.modal-overlay .app-modal .modal-body form .add-field::before {
+  position: absolute;
+  content: "";
+  top: 0.6rem;
+  left: -14px;
+  height: 18px;
+  width: 25px;
+  border-bottom: 1px dashed #6c757d;
+}
+
+.modal-overlay .app-modal .modal-footer .btn {
+  color: #313539;
+}
+
+.modal-overlay .app-modal .modal-footer .btn.btn-primary {
+  color: #fff;
+}
+
+.modal-overlay.active {
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-overlay.active.create--- .modal-head .first-slide-title {
+  display: block;
+}
+
+.modal-overlay.active.create--- .modal-head .carousel-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal-overlay.active.create--- .slides:not(:last-child) {
+  display: block;
+}
+
+.modal-overlay.active.prop .modal-head .second-slide-title {
+  display: block;
+}
+
+.modal-overlay.active.prop .slides:not(:first-child) {
+  display: block;
+}
+
+.modal-overlay.active .app-modal {
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+  opacity: 1;
+  -webkit-transform: scale(1) translateY(0);
+          transform: scale(1) translateY(0);
+}
+/*# sourceMappingURL=app.css.map */
