@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <span>File name</span>
 
-          <button class="btn btn-dark">+</button>
+          <button class="btn btn-dark" @click="$emit('form', true)">+</button>
         </div>
       </div>
 

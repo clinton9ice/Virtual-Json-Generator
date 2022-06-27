@@ -1,6 +1,8 @@
 <template>
-  <div class="d-flex align-items-center justify-content-end p-3">
-    <div class="d-flex bg-white px-3 rounded-1 shadow-1">
+  <div class="d-flex align-items-center justify-content-between flex-wrap p-3">
+    <slot></slot>
+
+    <div class="d-flex bg-white px-3 rounded-1 shadow-1 ms-auto">
       <div class="card-item mx-3" v-for="tab in tabs" :key="tab.name">
         <button
           :class="['btn', tab.isActive && 'text-primary']"

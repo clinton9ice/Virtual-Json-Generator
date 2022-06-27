@@ -1,16 +1,18 @@
 <template>
   <div class="container-fluid mt-5">
     <h4 class="col-sm-4 text-muted">
-      Create, View, and Download your JSON file in a very simplified way. 
+      Create, View, and Download your JSON file in a very simplified way.
     </h4>
     <br />
     <br />
-    <TableTab @activeTab="tab" />
+    <table-tab @activeTab="tab">
+      <back-btn v-if="count > 1" @reduce="decrease"></back-btn>
+    </table-tab>
 
     <FixedButtonVue />
 
     <div class="container-fluid px-0">
-      <table-vue :mobileActive="count">
+      <table-vue :mobileActive="count" @form="modal">
         <div className="tableBody border-0" id="tableFormat" v-if="!codeView">
           <TbFile
             :class="count === 1 && 'mobileActive'"
@@ -35,9 +37,9 @@
             class="language-javascript h-100"
           ><code>{{ selectedFile }}</code></pre>
         </div>
-        <back-btn v-if="count > 1" @reduce="decrease"></back-btn>
       </table-vue>
     </div>
+    <property-form :isFormOpen="fileCreate" @closeForm="modal"/>
     <br />
   </div>
 </template>
@@ -52,7 +54,8 @@ import TbValues from "@/components/Table/TbValues";
 
 // ==========Store
 import { useStore, mapGetters } from "vuex";
-import BackBtn from "../../components/BackBtn.vue";
+import BackBtn from "@/components/BackBtn.vue";
+import propertyForm from "@/components/Form/propertyForm";
 
 export default {
   name: "Home",
@@ -64,6 +67,7 @@ export default {
     TbProps,
     TbValues,
     BackBtn,
+    propertyForm,
   },
   setup() {
     const store = useStore();
@@ -76,6 +80,7 @@ export default {
       propertyVal: "",
       count: 1,
       maxCount: 3,
+      fileCreate: false
     };
   },
   computed: mapGetters(["selectedFile"]),
@@ -98,6 +103,9 @@ export default {
         console.log(this.count);
       }
     },
+    modal() {
+      this.fileCreate = !this.fileCreate
+    }
   },
 };
 </script>

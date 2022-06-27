@@ -2,17 +2,10 @@
   <Navigation brand="JSM"> </Navigation>
   <router-view v-slot="{ Component, route }">
     <transition name="fade" mode="out-in">
-            <component
-              :is="Component"
-              :key="route.meta.usePathKey ? route.path : undefined"
-            ></component>
-      <!-- <keep-alive>
-        <suspense>
-          <template #default>
-          </template>
-          <template #fallback> loading... </template>
-        </suspense>
-      </keep-alive> -->
+      <component
+        :is="Component"
+        :key="route.meta.usePathKey ? route.path : undefined"
+      ></component>
     </transition>
   </router-view>
 </template>

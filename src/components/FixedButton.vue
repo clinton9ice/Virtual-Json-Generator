@@ -9,7 +9,7 @@
 
       <div class="option">
         <a href="#" class="icon btn bi bi-code"> </a>
-        <div class="text ">Codes</div>
+        <div class="text ">Code Gallery</div>
       </div>
     </div>
     <!-- ============= -->
