@@ -49,18 +49,13 @@
 
       <div class="modal-footer">
         <div class="btn-container">
-          <button
-            class="btn btn-secondary me-3"
-            type="button"
-            @click="closeForm"
-          >
+          <button class="btn btn-secondary me-3" type="button" @click="closeForm">
             Close
           </button>
           <button
             class="btn disabled"
             type="button"
-            v-if="input.fileName === ''"
-          >
+            v-if="input.fileName === ''">
             Next
           </button>
           <button
