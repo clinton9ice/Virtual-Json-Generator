@@ -13,7 +13,7 @@
 
     <div class="container-fluid px-0">
       <table-vue :mobileActive="count" @form="modal">
-        <div className="tableBody border-0" id="tableFormat" v-if="!codeView">
+        <div class="tableBody border-0" id="tableFormat" v-if="!codeView">
           <TbFile
             :class="count === 1 && 'mobileActive'"
             @addcount="increement"
@@ -94,17 +94,18 @@ export default {
     increement() {
       if (this.count < 3) {
         this.count++;
-        console.log(this.count);
       }
     },
     decrease() {
-      if (this.count != 1) {
+      if (this.count !== 1) {
         this.count--;
         console.log(this.count);
       }
     },
     modal() {
-      this.fileCreate = !this.fileCreate
+      let propForm = document.querySelector("#propForm")
+      this.fileCreate = !this.fileCreate;
+      !propForm.classList.contains("isOpen") ? document.body.style.overflow = "hidden" : document.body.style.overflowY = "visible"
     }
   },
 };

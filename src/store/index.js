@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { action } from "./actions";
+import { addFile } from "./actions";
 import mutations from "./mutation";
 
 export default createStore({
@@ -47,18 +47,6 @@ export default createStore({
         ],
         isSelected: false,
       },
-      {
-        id: 2,
-        name: "Music API",
-        props: [],
-        isSelected: false,
-      },
-      {
-        id: 3,
-        name: "School Library",
-        props: [],
-        isSelected: false,
-      },
     ],
     activeFile: {},
   },
@@ -71,5 +59,7 @@ export default createStore({
     },
   },
   mutations,
-  actions: action,
+  actions: {
+    addFile
+  },
 });

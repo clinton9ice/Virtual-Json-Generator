@@ -1,5 +1,5 @@
 <template>
-  <Navigation brand="JSM"> </Navigation>
+  <Navigation brand="JSM" />
   <router-view v-slot="{ Component, route }">
     <transition name="fade" mode="out-in">
       <component

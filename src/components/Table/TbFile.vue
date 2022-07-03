@@ -4,19 +4,19 @@
 
     <div class="item" v-else>
       <div
-        :class="['data', doc.isSelected && 'active']"
-        :key="doc.id"
-        v-for="doc in allFiles"
-        @click="select(doc.id)"
+          :class="['data', doc.isSelected && 'active']"
+          :key="doc.id"
+          v-for="doc in allFiles"
+          @click="select(doc.id)"
       >
         <div class="item-name">{{ doc.name }}</div>
 
         <div class="item-prop">
-          <button class="btn text-secondary" @click="download(doc)">
+          <button class="btn text-secondary" @click.stop="download(doc)">
             <i class="bi bi-cloud-arrow-down"></i>
           </button>
 
-          <button class="btn text-danger" @click="deleteFile">
+          <button class="btn text-danger" @click.stop="deleteFile(doc.id)">
             <i class="bi bi-trash2"></i>
           </button>
         </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 
 export default {
   emits: ["addcount"],
@@ -34,8 +34,9 @@ export default {
     download(doc) {
       console.log(doc.name + " downloading...");
     },
-    deleteFile() {
-      console.log("deleting...");
+    deleteFile(id) {
+      if (confirm("This action can't be reversed once deleted"))
+        this.$store.commit("deleteFile", id)
     },
     select(id) {
       this.$store.commit("selectFile", id)

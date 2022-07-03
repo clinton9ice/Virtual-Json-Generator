@@ -107,6 +107,7 @@
 
 <script>
 export default {
+  name: "inlineForm",
   props: {
     isAlive: Boolean,
     value: [String, Number, Array, Object, Boolean],

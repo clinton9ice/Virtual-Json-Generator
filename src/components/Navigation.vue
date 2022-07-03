@@ -1,6 +1,6 @@
 <template>
-  <nav className="navbar px-4 py-3 shadow-sm">
-    <h5 className="navbar-brand">
+  <nav class="navbar px-4 py-3 shadow-sm">
+    <h5 class="navbar-brand">
       <router-link to="/">{{ brand }}</router-link>
     </h5>
 
@@ -15,7 +15,7 @@
     </button>
 
     <div :class="[mobileMenu && 'd-view', 'navbar-custom ']">
-      <ul className="navbar-nav mx-auto">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item" v-for="link in navItems" :key="link.name">
           <router-link :to="link.url" class="nav-link">{{
             link.name

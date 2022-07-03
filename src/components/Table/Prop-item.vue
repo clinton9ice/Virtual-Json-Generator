@@ -1,56 +1,57 @@
 <template>
-  <div class="item" v-for="(objKey, i) in keys" :key="objKey">
+  <div v-if="keys.length === 0"></div>
+  <div class="item" v-for="(objKey, i) in keys" :key="objKey" v-else>
     <div
-      :class="['data', objKey === selected && highlighted && 'active']"
-      @click="select(objKey, i)"
+        :class="['data', objKey === selected && highlighted && 'active']"
+        @click="select(objKey, i)"
     >
       <div class="item-name">{{ objKey }}</div>
 
       <div class="item-prop">
-        <button
-          class="btn text-secondary"
-          type="button"
-          @click="toggleEdit(objKey)"
-        >
+        <button class="btn text-secondary" type="button" @click.stop="toggleEdit(objKey)">
           <i class="bi bi-pen"></i>
         </button>
 
-        <button class="btn text-danger" type="button" @click="remove">
+        <button class="btn text-danger" type="button" @click.stop="remove">
           <i class="bi bi-trash2"></i>
         </button>
 
         <span class="type small text-muted">{{
-          Array.isArray(values[i]) ? "array" : typeof values[i]
-        }}</span>
+            Array.isArray(values[i]) ? "array" : typeof values[i]
+          }}</span>
       </div>
     </div>
     <InlineForm
-      :isAlive="objKey === selected && openForm"
-      :name="objKey"
-      :value="values[i]"
+        :isAlive="objKey === selected && openForm"
+        :name="objKey"
+        :value="values[i]"
     />
   </div>
 </template>
 
 <script>
 import InlineForm from "../Form/InlineForm.vue";
+import {isObject} from "../../helper/conditions";
+import {mapGetters} from "vuex";
+
 export default {
   components: {
     InlineForm,
   },
   emits: ["value", "addcount"],
   props: {
-    props: Array,
     dropdown: Boolean,
+    items: Array,
   },
   data() {
     return {
       editMode: false,
-      keys: {},
-      values: {},
+      keys: [],
+      values: [],
       selected: "",
       openForm: false,
       highlighted: false,
+      properties: {}
     };
   },
   methods: {
@@ -67,11 +68,22 @@ export default {
       this.$emit("value", this.values[index]);
       this.$emit("addcount")
     },
+    setValue(file) {
+      if (isObject(file)){
+        this.keys = Object.keys(file);
+        this.values = Object.values(file)
+      }
+    }
   },
   created() {
-    this.keys = Object.keys(this.props[0]);
-    this.values = Object.values(this.props[0]);
+    this.setValue(this.selectedFile[0])
   },
+  computed: mapGetters(["selectedFile"]),
+  watch: {
+    selectedFile(recent) {
+        this.setValue(recent[0])
+    }
+  }
 };
 </script>
 

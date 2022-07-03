@@ -1,19 +1,15 @@
 <template>
-  <div className="column" id="prop-column">
-    <div className="empty-column" v-if="Object.keys(property).length == 0">
+  <div class="column" id="prop-column">
+    <div class="empty-column" v-if="Object.keys(selectedFile).length === 0">
       No Property
     </div>
 
-    <div className="top-form-column" v-else>
+    <div class="top-form-column" v-else>
       <button class="btn text-primary">+ Add Prop</button>
     </div>
 
     <div v-if="selectedFile.length > 0">
-      <PropItem
-        :props="selectedFile"
-        v-on:value="(e) => this.$emit('selectedProp', e)"
-        @addcount="(e) => this.$emit('addcount')"
-      />
+      <PropItem :items="selectedFile" v-on:value="(e) => this.$emit('selectedProp', e)" @addcount="(e) => this.$emit('addcount')"/>
     </div>
 
     <br />
@@ -24,18 +20,16 @@
 import PropItem from "./Prop-item.vue";
 import { mapGetters } from "vuex";
 export default {
-  props: {
-    property: Object,
-  },
   components: {
     PropItem,
   },
   data() {
     return {
       editing: false,
+      file: null
     };
   },
-  computed: mapGetters(["selectedFile"]),
+  computed: mapGetters(["selectedFile"])
 };
 </script>
 
