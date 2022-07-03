@@ -79,8 +79,8 @@
                   </select>
                 </div>
 
-                <div class="d-flex align-items-end">
-                  <span class="me-3"> = </span>
+                <div class="d-flex align-items-end extra">
+                  <span class="me-3 eq"> = </span>
                   <div class="form-group">
                     <label class="form-label">Property value</label>
                     <input type="text" class="form-control" v-model="input.props.values[index]" placeholder="value"
@@ -276,7 +276,6 @@ const saveFile = async () => {
     .modal-header {
       background-color: hsl(29, 100%, 67%);
       color: #fff;
-
       .btn {
         height: 30px;
         width: 30px;
@@ -296,7 +295,42 @@ const saveFile = async () => {
     .modal-body {
       //min-height: 50vh;
       max-height: 300px;
+      overflow: hidden;
       overflow-y: auto;
+    }
+
+    @media only screen and (max-width: 800px) {
+      .tabs{
+        flex-wrap: wrap;
+        .tab:not(:last-child){
+          margin-bottom: 0.8rem;
+        }
+      }
+      .id-container{
+        flex-wrap: wrap;
+      }
+      .form-group{
+        width: 100%;
+        margin-bottom: 0.8rem;
+      }
+      .properties{
+        padding: 0.5rem !important;
+
+        .fields{
+          flex-wrap: wrap;
+          gap: 1rem;
+          justify-content: normal;
+          padding-bottom: 2rem !important;
+          padding-top: 1rem !important;
+          border-bottom: 1px dashed var(--bs-gray-300);
+
+          .form-select{width: 100%;}
+          .eq{
+            display: none;
+          }
+          .extra{flex-wrap: wrap}
+        }
+      }
     }
   }
 
